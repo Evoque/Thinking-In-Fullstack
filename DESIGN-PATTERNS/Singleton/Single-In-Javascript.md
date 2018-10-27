@@ -120,3 +120,47 @@ class Foo {
 ```
 
  因为JS中没有限定修饰符(`private`,`protected`)，所以不能像`C#`那样对静态属性和构造方法做限制，所以严格意义上来说，外界也是可以直接通过`new`或者`static get instance`直接进行访问， 个人感觉不是一种严谨的单例模式，不建议使用⚠️！
+
+
+#### 下面是第三种解决方案 - 自执行函数
+```javascript
+
+let Singleton = (function(){
+    return {
+        toString: function(){
+            return "[object Singleton]";
+        }
+    };
+}());
+
+export default Singleton;
+
+```
+
+这种实现方式和第一种直接返回对象应该是一样的效果。 看着并没有实现类似于懒加载的效果啊。
+
+### 第四种，看着有些费解
+```javascript
+
+export default function Singleton(instance){
+    if(!Singleton.getInstance){
+        Singleton.getInstance = function(){
+            return instance;
+        };
+        instance = new Singleton;
+    }
+
+    this.toString = function(){
+        return "[object Singleton]";
+    };
+}(new Singleton);
+
+```
+实际用法如下:
+```javascript
+
+import Singleton from './Singleton';
+
+const single1 = Singleton.getInstance();
+
+```
