@@ -139,7 +139,7 @@ export default Singleton;
 
 这种实现方式和第一种直接返回对象应该是一样的效果。 看着并没有实现类似于懒加载的效果啊。
 
-### 第四种，看着有些费解
+### 第四种 - 自执行模式，看着有些费解
 ```javascript
 
 export default function Singleton(instance){
@@ -162,5 +162,37 @@ export default function Singleton(instance){
 import Singleton from './Singleton';
 
 const single1 = Singleton.getInstance();
+
+```
+
+
+### 第五种
+```javascript
+
+let DBCInstance = null;
+global.DatabaseConnection = class DatabaseConnection {
+    // url, username, connection 仅有getter 没有 setter.
+    get url(){
+        return 'mongodb://localhost:27017/myproject';
+    }
+    get username(){
+        return 'admin';
+    }
+    get connection(){
+        let connection;
+        // Don something to get the connection to the DB.
+        return connection.
+    }
+    get password(){
+        return 'localhost';
+    }
+
+    static get instance(){
+        if(DBCInstance === null ||  DBCInstance.getConnection().isClosed()) {
+                DBCInstance = new DatabaseConnection();
+        }
+        return DBCInstance;
+    }
+}
 
 ```
