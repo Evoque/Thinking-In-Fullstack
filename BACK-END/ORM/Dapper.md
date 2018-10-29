@@ -1,5 +1,6 @@
 
 > a simple object mapper for .NET
+> After testing, Dapper is easy-to-use and powerful
 
 It provides 3 helpers;
 
