@@ -18,6 +18,7 @@ Record the dots and the thinkings on the way to Fullstacker.
 
 
 ## Part IV. ARCHITECTURE
+ 
 
 
 ## Part VI. .net Source
