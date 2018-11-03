@@ -6,6 +6,7 @@ Record the dots and the thinkings on the way to Fullstacker.
 ## Part I. FULLSTACK REACT
 
 
+
 ## Part II. FULLSTACK VUE
 
 
@@ -16,7 +17,10 @@ Record the dots and the thinkings on the way to Fullstacker.
 
 
 
-## Part IIIII. ARCHITECTURE
+## Part IV. ARCHITECTURE
+ 
 
+
+## Part VI. .net Source
 
 
