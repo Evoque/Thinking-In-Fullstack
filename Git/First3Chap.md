@@ -410,7 +410,8 @@ $ git push origin --tags
 
 ###  第二章总结
 
-
+1. 可以设置git的自动补全， 等下回去试试。
+2. Git 别名: `$ git config --global alias.co checkout` 等等
 
 
 
