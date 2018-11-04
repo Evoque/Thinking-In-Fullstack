@@ -154,6 +154,14 @@ git commit -m "bug135: fix it and ..."
 
 
 
+#### 跳过使用暂存区域
+
+```
+$ git commit -a -m 'comment: git add + git commit'
+```
+
+这个命令会直接跳过暂存区域，自动把所有已经跟踪过的文件暂存起来一并提交，也就是跳过了`git add`步骤。
+
 
 
 
