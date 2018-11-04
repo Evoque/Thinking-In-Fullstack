@@ -44,7 +44,7 @@ Git使用`SHA-1`苏啊放哪计算数据的校验和，40个十六进制(`0-9 & 
 - 文件的四种状态
 
 `working directory` ->add-> `staging area` ->commit-> `git directory(repository)` ->pull-> `remote repository`
- 
+
 当然这集中状态也是可逆的。
 对应流程如下:
 1. 在工作目录中修改某些文件
@@ -101,17 +101,68 @@ git config user.name
 第一章其实是最简单的， 自己啰里八嗦写了那么多字， 下面这些章节重在理解， 记录关键点就行了。
 
 - 初始化新仓库: `git init`, 出现`.git`文件。 没出现？ 人品问题。
-- `git add | git add -A | git add *.c`: 各种添加操作；**纳入新文件**，**纳入新修改**的部分等..
+- `git add | git add -A | git add *.c`: 各种添加操作；**纳入新文件**，**纳入新修改**的部分,**标记有冲突的文件为已解决**
+
+    > add file into staged area.
 - `git clone git:... <name>`:  **clone**的意思是down下来项目历史的所有数据, `<name>`是用来自定义文件名称的、
+
    - git支持多种协议， `git://`, `http(s)://`, `user@server:/path.git`SSH传输的协议。
 - 文件状态变化周期，看图:  
- 
+
  ![](./imgs/git_status_lifecycle.png)
 
 检查当前文件状态
 ```
 $ git status
 ```
+
+
+
+- 忽略文件`.gitignore`格式规范
+  - 空行或者`#`注释开头的航都会被Git忽略
+  - 可以使用标准的[glob](https://baike.baidu.com/item/glob%E6%A8%A1%E5%BC%8F/8290305)模式匹配
+  - 匹配模式最后跟反斜杠(`/`)说明要忽略的是目录
+  - `!`表示取反，添加例外
+
+
+
+#### 对比修改
+
+```
+git diff
+git diff --cached  # 已经暂存和上次提交的快照之间的差异 or =>
+git diff --staged
+```
+
+有了VSCode图形化的差异对比工具， 这个`diff`命令几乎用不到。 
+
+
+
+#### 提交 commit
+
+```
+git commit
+```
+
+此命令会启动文本编辑器以便输入本次提交的说明，也就是配置文件中的`git config --global core.editor`.
+
+当然我经常用的是直接用简短的一行说明信息， 因为大段的修改说明信息完全可以放在代码的注释中，没必要写在提交记录中。
+
+```
+git commit -m "bug135: fix it and ..."
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
