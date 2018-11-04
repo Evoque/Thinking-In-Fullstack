@@ -226,13 +226,21 @@ $ git add b
 
 #### 查看提交历史
 
-`git log`
+```
+$ git log 
+$ git log -p # 展开显示每次提交的内容差异
+$ git log -2 # 仅显示最近的两次更新
+$ git log --stat # 浏览其他协作者的提交
+$ git log --pretty=oneline  # 每个提交放一行显示, 另外还有 `short`,`full`,`fuller`使用
+$ git log --pretty=format:'%h - %an, %ar : %s' # 定制要显示的记录格式，具体占位符查相关文档吧
+$ git log --pretty=oneline|format # 命令行中的分支情况，interesting
+```
 
-`git log -p`: 展开显示每次提交的内容差异
+`git log`支持的命令还有好几种，具体可以去浏览官方手册，例如，限制输出长度、匹配搜索符合条件的`commit`等。具体使用时再查看使用手册吧， 工作中如果不是超大型项目应该很少用到。 
 
-`git log -2`: 仅显示最近的两次更新
 
-`git log --stat`: 在做代码审查时，或者快速浏览其他协作者提交的更新都做了哪些改动时，可以用这个选项。
+
+#### 撤销操作
 
 
 
