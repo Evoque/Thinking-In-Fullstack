@@ -50,5 +50,70 @@ Git使用`SHA-1`苏啊放哪计算数据的校验和，40个十六进制(`0-9 & 
 1. 在工作目录中修改某些文件
 2. 对修改后的文件进行快照，然后保存到暂存区域
 3. 提交更新，将保存在暂存区域的文件快照永久转储到Git目录中。 
-也就是说， 如果你不`commit`，你的东西还是有丢的可能性。 只要`commit`了，都能找回来。 
+也就是说， 如果你不`commit`，你的东西还是有丢的可能性。 只要`commit`了，都能找回来。
+
+
+- 安装
+Mac上的安装命令;
+`$ sudo port install git-core +svn +doc +bash_completion +gitweb`
+
+了解一下Mac上的两个包管理工具[Macports](https://www.macports.org/)和[homebrew](https://brew.sh/).
+
+Windows上
+`http://msysgit.github.com/`
+
+- 初次配置
+所有的配置操作都是基于`git config`来进行，其实后面对应的是一个工具。 专门用来配置或读取相应的工作环境变量。
+    - `/etc/gitconfig`: 对所有用户适用，`git config --system`配置
+    - `~/.gitconfig`: 当前用户, `git config --global`
+    - `.git/config`: 当前项目的git目录中的配置文件，仅对当前项目有效
+
+在Windows系统上，Git会着用户主目录下的`.gitconfig`文件。 主目录及`$HOME`变量指定的目录，一般都是`C:\Documents and Settings\$USER`。 此外，Git还会尝试查找`/etc/gitconfig`文件，只不过看当初Git装在什么目录下，就以此作为根目录来定位。
+
+- 用户信息: 
+```
+$  git config --global user.name "吴彦祖"
+$  git config --global user.email "吴彦祖@gmail.com"
+
+```
+在像`github`提交`commit`的时候， 如果此`email`与你github账户中的`email`不匹配，`github`不会记录你的commit次数，也就是你的热力图不亮。 刷`commit`的同学注意了。
+
+- 文本编辑器 & 差异分析工具
+```
+$ git config --global core.editor emacs
+$ git config --global merge.tool vimdiff
+```
+这两个命令还没用过，VSCode的辅助功能都已经解决了这些问题。 
+
+- 查看配置信息
+```
+$ git config --list
+```
+此命令会显示所有的配置项， 其中重复的配置项，起作用的是最后一个。
+查看特定配置项：
+```
+git config user.name
+```
+
+
+
+## Git 基础
+第一章其实是最简单的， 自己啰里八嗦写了那么多字， 下面这些章节重在理解， 记录关键点就行了。
+
+- 初始化新仓库: `git init`, 出现`.git`文件。 没出现？ 人品问题。
+- `git add | git add -A | git add *.c`: 各种添加操作；**纳入新文件**，**纳入新修改**的部分等..
+- `git clone git:... <name>`:  **clone**的意思是down下来项目历史的所有数据, `<name>`是用来自定义文件名称的、
+   - git支持多种协议， `git://`, `http(s)://`, `user@server:/path.git`SSH传输的协议。
+- 文件状态变化周期，看图:  
+ 
+ ![](./imgs/git_status_lifecycle.png)
+
+检查当前文件状态
+```
+$ git status
+```
+
+
+
+
 
