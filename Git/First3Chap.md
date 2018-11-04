@@ -253,10 +253,28 @@ $ git commit --amend
 ```
 $ git commit -m 'initial commit'
 $ git add ---
-$ git commit --amend
+$ git commit --amend  # 最后一条命令修正了第一个的提交内容
 ```
 
+> 试了一下上面的命令， 然后配合`vim`确实实现了修改。 对于`vim`小白来说还是摸索了一下简单的使用: 先`ESC`进入命令模式， 然后`:WQ`保存退出， 或者`:x`保存退出。
 
+
+
+#### 取消已经暂存的文件
+
+```
+$ git reset
+```
+
+具体使用看git的提示信息就好
+
+#### 取消对文件的修改
+
+```
+$ git checkout -- <filename>
+```
+
+这里的`--` 有些怪异，这里要注意， 取消了那就永远没有了，使用这个命令的时候一定要非常注意啊。
 
 
 
