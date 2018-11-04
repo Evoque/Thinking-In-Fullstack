@@ -242,6 +242,22 @@ $ git log --pretty=oneline|format # 命令行中的分支情况，interesting
 
 #### 撤销操作
 
+> 这个是一定会遇见的操作，但有些撤销操作完全是不可逆的，所以，使用的时候一定要谨慎！
+
+```
+$ git commit --amend
+```
+
+重新编辑提交说明， or 补上暂存操作，如：
+
+```
+$ git commit -m 'initial commit'
+$ git add ---
+$ git commit --amend
+```
+
+
+
 
 
 
