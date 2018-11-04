@@ -316,6 +316,24 @@ $ git push [remote-name] [branch-name]
 $ git remote show origin
 ```
 
+这个命令在项目大， 分支多的时候还是很有用的， 它会告诉我们:
+
+1. `git push`时缺省推送的分支是什么
+2. 它显示了有哪些远端分支还没同步到本地
+3. 哪些已同步到本地的远端分支在远端服务器上已被删除
+4. 运行`git pull`时将自动合并哪些分支。
+
+具体的信息在实际项目中，执行两次， 然后认真读cmd中输出的信息就好。
+
+```
+$ git remote rename oriName newName   # 重命名
+$ git remote rm pb # 移除对应的远端仓库	
+```
+
+
+
+### 打标签
+
 
 
 
