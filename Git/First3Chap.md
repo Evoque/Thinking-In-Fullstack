@@ -111,7 +111,12 @@ git config user.name
 
  ![](./imgs/git_status_lifecycle.png)
 
+途中的蓝色块`staged` 是`git add`之后的结果，称为暂存区域， 而`commit`相当于把文件状态从`staged` 改为`unmodified`，如上图中最长的红色箭头。
+
+
+
 检查当前文件状态
+
 ```
 $ git status
 ```
@@ -161,6 +166,29 @@ $ git commit -a -m 'comment: git add + git commit'
 ```
 
 这个命令会直接跳过暂存区域，自动把所有已经跟踪过的文件暂存起来一并提交，也就是跳过了`git add`步骤。
+
+
+
+#### 移除文件
+
+>  这个得好好练一下，工作中直接用这个命令的时候不多，用不好容易出错。
+
+Git删除文件，就是从`已跟踪文件清单中清除`(确切的说，是从暂存区域移除)，然后提交。
+
+```
+rm a.md
+
+# Changes not staged for commit:
+# deleted: a.md
+```
+
+然后
+
+```
+git rm a.md
+```
+
+最后提交的时候，该文件就不再纳入版本管理。 如果删除之前修改过并且放到了暂存区域的话
 
 
 
