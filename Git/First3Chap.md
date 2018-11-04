@@ -334,6 +334,19 @@ $ git remote rm pb # 移除对应的远端仓库
 
 ### 打标签
 
+```
+$ git tag
+$ git tag -l '模式匹配'
+```
+
+一般新建的标签都是含附注的(annotated)，便于我们保留相关信息。如下
+
+```
+$ git tag -a v1.0 -m 'first version'
+```
+
+`-a`代表`annotated`， `-m`指定对应的标签说明。
+
 
 
 
