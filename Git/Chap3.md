@@ -80,9 +80,47 @@ $ git checout -b serverBra origin/serverBra
 
 也就是我们在这些分支里可以直接使用`git pull` & `git push`
 
+```
+$ git checkout --track origin/serverfix
+$ git checkout -b sf origin/serverfix
+```
+
+在远程服务器上删除分支:
+
+```
+$ git push origin :serverFix
+```
 
 
 
+### 分支的rebase
+
+> 书上翻译为衍合，我个人觉得有些牵强， 先用英文原名，如果真正有用的话再想个自己的名字。
+
+`rebase`: 把在一个分支里提交的改变移到另一个分支里重放一遍。如下图:
+
+![](./images/rebase.png)
+
+更像是在相反的方向上做`merge`,  如两种操作为
+
+```
+# 在master分支上 merge
+$ git merge experiment
+
+# 在experiment上进行rebase
+$ git rebase master
+
+# 或者
+$ git rebase master server # git rebase [主分支] [特性分支]
+```
+
+最后都实现了合并。
+
+rebase的目的，是想要得到一个能在远程分支上干净应用的布丁 — 比如某些项目你不是维护者，但想帮点忙，最好用rebase；现在自己的一个分支里进行开发，当准备向主项目提交补丁的时候，根据最新的`origin/master`进行一次rebase操作然后再提交，这样维护者就不需要做任何整合工作(实际上是把解决分支补丁同最新主干代码之间冲突的责任，转化为由提交补丁的人来解决)
+
+
+
+**切记，不要rebase已经提交过的commit 对象**
 
 
 
