@@ -17,3 +17,7 @@
 
 `OWIN` defines a standard interface between .NET web servers and web applications.  The goal of the OWIN interface is to **decouple server and application**, encourage the development of simple modules for .NET web development.
 
+`OWin` provides interoperability between web frameworks and makes it easy to write a single piece of code that can be reused in each and every framework. 
+
+The future of the .NET web technologies is going to be heterogenous with a heavy open source software presence. As such, it is important to be prepared for a shift in the .NET horizon.
+
