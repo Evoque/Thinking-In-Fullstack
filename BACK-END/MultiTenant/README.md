@@ -10,3 +10,10 @@
 
 1. For Consumer Developers: OAuth is a simple way to publish and interact with protected data. It's also a safer and more secure way for people to give you access. We've kept it simple to save you time.
 2. For Service Provider Developers: If you're storing protected data on your users' behalf, they shouldn't be spreading their passwords around the web to get access to it. Use OAuth to give your users access to their data while protecting their account credentials.
+
+
+
+### OWIN ( Open Web Interface for .NET )
+
+`OWIN` defines a standard interface between .NET web servers and web applications.  The goal of the OWIN interface is to **decouple server and application**, encourage the development of simple modules for .NET web development.
+
